@@ -24,11 +24,11 @@ module.exports = function(grunt) {
 				// reload: true
 			},
 			javascript: {
-				files: ['gruntfile.js', 'grunttasks/*.js', 'js/*.js'],
+				files: ['gruntfile.js', 'grunttasks/*.js', 'src/js/*.js'],
 				tasks: ['jshint']
 			},
 			html: {
-				files: ['index.html', "*.html"],
+				files: ['index.html', "src/html/*.html"],
 				tasks: ['watch']
 			},
 			reports: {

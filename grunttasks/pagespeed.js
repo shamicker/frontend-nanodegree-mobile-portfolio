@@ -4,22 +4,22 @@ module.exports = function(grunt) {
         pagespeed: {
             options: {
                 nokey: true,
-                url: "https://developers.google.com"
+                url: "http://localhost:8000"
             },
             prod: {
                 options: {
-                    url: "https://developers.google.com/speed/docs/insights/v1/getting_started",
+                    url: "http://localhost:8000/",
                     locale: "en_GB",
-                    strategy: "desktop",
-                    threshold: 80
+                    strategy: ["desktop", "mobile"],
+                    threshold: 90
                 }
             },
             paths: {
                 options: {
-                    paths: ["/speed/docs/insights/v1/getting_started", "/speed/docs/about"],
+                    paths: ["/project-2048.html", "/project-mobile.html", "/project-webperf.html"],
                     locale: "en_GB",
-                    strategy: "desktop",
-                    threshold: 80
+                    strategy: ["desktop", "mobile"],
+                    threshold: 90
                 }
             }
         }
