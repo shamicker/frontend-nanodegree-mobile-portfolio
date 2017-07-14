@@ -7,7 +7,7 @@ module.exports = function(grunt) {
                 	open: true,
                 	hostname: 'localhost',
                 	// protocol: "https",
-                    port: 8000,
+                    port: 8111,
                     locale: "en_GB",
                     // threshold: 90,
                     livereload: true
@@ -30,6 +30,10 @@ module.exports = function(grunt) {
 			html: {
 				files: ['index.html', "src/html/*.html"],
 				tasks: ['watch']
+			},
+			copy: {
+				files: ["src/css/**", "src/html/**", "src/img/**", "src/views/**"],
+				tasks: ['copy:main', 'watch']
 			},
 			reports: {
 				files: 'build/report.js',
