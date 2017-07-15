@@ -11,7 +11,7 @@ module.exports = function(grunt) {
                     port: 8111,
                     locale: "en_GB",
                     // threshold: 90,
-                    livereload: 8111
+                    livereload: true
                 }
             }
             // uses_defaults: {}
@@ -34,7 +34,7 @@ module.exports = function(grunt) {
 			},
 			index: {
 				files: ['index.html'],
-				tasks: ['live']
+				tasks: ['pagespeed', 'live']
 			},
 			copy: {
 				files: ["src/css/**", "src/html/**", "src/img/**", "src/views/**"],

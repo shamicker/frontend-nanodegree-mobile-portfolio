@@ -17,7 +17,7 @@ module.exports = function(grunt) {
     grunt.registerTask('pagespeed', function() {
         var async = this.async;
 
-        grunt.event.once('connect.server.listening', function(host, port) {
+        grunt.event.on('connect.server.listening', function(host, port) {
           psiNgrok({
             port: port,
             // port: parseInt("<%= connect.server.options.port%>"),
@@ -28,7 +28,7 @@ module.exports = function(grunt) {
                     'index.html'
             ],
             onError: function(error) {
-              grunt.fatal(error);
+              grunt.log.error(error);
             },
             options: {
               threshold: 90
@@ -37,7 +37,7 @@ module.exports = function(grunt) {
         });
       });
 
-    grunt.registerTask("live", ["pagespeed", "connect", "watch"]);
-    grunt.registerTask("default", ["jshint", "copy", "live"]);
+    grunt.registerTask("live", ["connect", "watch"]);
+    grunt.registerTask("default", ["jshint", "copy", "pagespeed", "live"]);
 
 };
