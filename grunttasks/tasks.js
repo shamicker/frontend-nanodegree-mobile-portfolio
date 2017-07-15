@@ -7,7 +7,7 @@ module.exports = function(grunt) {
                 "eqeqeq": true,
                 reporterOutput: 'build/report.js'
             },
-            all: ["gruntfile.js", "grunttasks/*.js", "src/js/*.js", "build/js/*.js"]
+            all: ["gruntfile.js", "grunttasks/*.js", "src/js/*.js"]
         },
 
         copy: {
