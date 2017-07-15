@@ -4,13 +4,14 @@ module.exports = function(grunt) {
 		connect: {
             server: {
                 options: {
+                	keepalive: true,
                 	open: true,
                 	hostname: 'localhost',
                 	// protocol: "https",
                     port: 8111,
                     locale: "en_GB",
                     // threshold: 90,
-                    livereload: true
+                    livereload: 8111
                 }
             }
             // uses_defaults: {}
@@ -19,7 +20,7 @@ module.exports = function(grunt) {
 		watch: {
 			options: {
 				spawn: false,
-				livereload: "<%= connect.server.options.livereload%>"
+				livereload: "<%= connect.server.options.port%>"
 				// livereload: 8000
 				// reload: true
 			},
@@ -33,7 +34,7 @@ module.exports = function(grunt) {
 			},
 			index: {
 				files: ['index.html'],
-				tasks: ['watch']
+				tasks: ['live']
 			},
 			copy: {
 				files: ["src/css/**", "src/html/**", "src/img/**", "src/views/**"],
@@ -43,6 +44,7 @@ module.exports = function(grunt) {
 				files: 'build/report.js',
 				tasks: ['watch']
 			}
+
 		}
 
 	});
