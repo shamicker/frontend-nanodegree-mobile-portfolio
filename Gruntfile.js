@@ -4,13 +4,18 @@ var psiNgrok = require('psi-ngrok');
 module.exports = function(grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-pagespeed');
+    // grunt.loadNpmTasks('grunt-pagespeed');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.loadNpmTasks('grunt-tinyimg');
+    grunt.loadNpmTasks('grunt-contrib-htmlmin');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-critical');
 
     require('./grunttasks/tasks.js')(grunt);
-    // require('./grunttasks/pagespeed.js')(grunt);
+    // require('./grunttasks/images.js')(grunt);
     require('./grunttasks/watch.js')(grunt);
 
     // Pagespeed and Ngrok
@@ -38,6 +43,18 @@ module.exports = function(grunt) {
       });
 
     grunt.registerTask("live", ["connect", "watch"]);
-    grunt.registerTask("default", ["jshint", "copy", "pagespeed", "live"]);
+    grunt.registerTask("psi", ["pagespeed", "connect"]);
+    grunt.registerTask("default", 
+        ["jshint", 
+        "critical",
+        "htmlmin",
+        "cssmin",
+        "uglify",
+        "tinyimg", 
+        // "copy", 
+        "pagespeed",
+        // "connect"
+        "live"
+        ]);
 
 };

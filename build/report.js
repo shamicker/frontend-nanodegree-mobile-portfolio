@@ -1,1 +1,1 @@
-[32m>> [39m5 files lint free.
+[32m>> [39m4 files lint free.
