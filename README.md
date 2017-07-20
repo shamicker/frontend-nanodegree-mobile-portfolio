@@ -2,9 +2,7 @@
 
 This challenge was to optimize this online portfolio for speed. In particular, optimize the critical rendering path and make this page render as quickly as possible (goal of Pagespeed Insight score of 90+) by applying the techniques picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
 
-There were 2 parts to the challenge:
-Part 1: Optimize PageSpeed Insights score for index.html to 90 or better.
-Part 2: Optimize Frames per Second (fps) in pizza.html to 60 fps or better.
+There were 2 parts to the challenge. To optimize PageSpeed Insights score for index.html, and to optimize frames per second (fps) in pizza.html.
 
 ***
 
@@ -13,7 +11,7 @@ Part 2: Optimize Frames per Second (fps) in pizza.html to 60 fps or better.
 #### Part 1
 #### Optimize PageSpeed Insights score for index.html
 
-1. Copy the public URL _________ try running it through PageSpeed Insights! 
+If you run [my GitHub Page](https://shamicker.github.io/frontend-nanodegree-mobile-portfolio/) through [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/), you'll see the end result.
 
 
 #### Part 2
