@@ -1,6 +1,6 @@
-/** {
+/* * {
   outline: 1px solid red !important;
-}*/
+} */
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -33,6 +33,8 @@ form {
   position: fixed;
   width: 256px;
   z-index: -1;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .randomPizzaContainer {
