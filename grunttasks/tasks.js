@@ -7,7 +7,8 @@ module.exports = function(grunt) {
         "eqeqeq": true,
         reporterOutput: 'build/report.js'
       },
-      all: ["gruntfile.js", "grunttasks/*.js", "src/js/*.js"]
+      psi90: ["gruntfile.js", "grunttasks/*.js", "src/js/*.js"],
+      pizza: ["gruntfile.js", "grunttasks/*.js", "src/views/js/*.js"]
     },
 
     critical: {

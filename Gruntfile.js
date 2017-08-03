@@ -44,6 +44,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask("live", ["connect", "watch"]);
     grunt.registerTask("psi", ["pagespeed", "connect"]);
+    grunt.registerTask("pizza", ["jshint:pizza", "cssmin", "htmlmin:static", "uglify"]);
     grunt.registerTask("default", 
         ["jshint", 
         "critical",
