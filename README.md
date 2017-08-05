@@ -1,40 +1,76 @@
-## Website Performance Optimization portfolio project
-
-This challenge was to optimize this online portfolio for speed. In particular, optimize the critical rendering path and make this page render as quickly as possible (goal of Pagespeed Insight score of 90+) by applying the techniques picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
+# Website Performance Optimization Project
 
 There were 2 parts to the challenge. To optimize PageSpeed Insights score for index.html, and to optimize frames per second (fps) in pizza.html.
 
-***
+## Part 1 - `index.html`
 
-### Getting started
+Run [my GitHub Page](https://shamicker.github.io/frontend-nanodegree-mobile-portfolio/) through [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/). The goal was a score of at least 90 for both mobile and desktop.
 
-#### Part 1
-#### Optimize PageSpeed Insights score for index.html
+### Optimize Page Loading
 
-If you run [my GitHub Page](https://shamicker.github.io/frontend-nanodegree-mobile-portfolio/) through [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/), you'll see the end result.
+This challenge was to optimize this online portfolio for loading speed. In particular, to optimize the critical rendering path and make this page render as quickly as possible by applying the techniques picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
+
+__Optimizations made__:
+* Minified images, HTML, CSS and JavaScript files
+* Optimized images
+* Compressed all files
+* 'Async'ed the non-critical JS scripts
+* Inlined the critical CSS components into the HTML
+* Added Web Font Loader for asynchronous Google Font loading
+* Added media attribute to non-critical CSS link
+* Updated Google Analytics code
+
+__Optimizations not made__:
+* Keep images locally rather than requesting them
 
 
-#### Part 2
-#### Optimize Frames per Second in pizza.html
 
-To optimize views/pizza.html, you will need to modify views/js/main.js until your frames per second rate is 60 fps or higher. You will find instructive comments in main.js. 
+## Part 2 - `views/pizza.html`
 
-You might find the FPS Counter/HUD Display useful in Chrome developer tools described here: [Chrome Dev Tools tips-and-tricks](https://developer.chrome.com/devtools/docs/tips-and-tricks).
+On [this page](https://shamicker.github.io/frontend-nanodegree-mobile-portfolio/build/views/pizza.html), you'll find a fairly hideous, fake pizzeria page. 
 
-### Optimization Tips and Tricks
-* [Optimizing Performance](https://developers.google.com/web/fundamentals/performance/ "web performance")
-* [Analyzing the Critical Rendering Path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/analyzing-crp.html "analyzing crp")
-* [Optimizing the Critical Rendering Path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/optimizing-critical-rendering-path.html "optimize the crp!")
-* [Avoiding Rendering Blocking CSS](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-blocking-css.html "render blocking css")
-* [Optimizing JavaScript](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/adding-interactivity-with-javascript.html "javascript")
-* [Measuring with Navigation Timing](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/measure-crp.html "nav timing api"). We didn't cover the Navigation Timing API in the first two lessons but it's an incredibly useful tool for automated page profiling. I highly recommend reading.
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/eliminate-downloads.html">The fewer the downloads, the better</a>
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/optimize-encoding-and-transfer.html">Reduce the size of text</a>
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/image-optimization.html">Optimize images</a>
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching.html">HTTP caching</a>
+There were 2 parts to this section:  
+__a)__ The hypnotizing background pizzas should move smoothly when you scroll.  
+__b)__ In the "Our Pizzas!" section, when the slider moves, the size of the foreground pizzas should change quickly and smoothly.
 
-### Customization with Bootstrap
-The portfolio was built on Twitter's <a href="http://getbootstrap.com/">Bootstrap</a> framework. All custom styles are in `dist/css/portfolio.css` in the portfolio repo.
+---
 
-* <a href="http://getbootstrap.com/css/">Bootstrap's CSS Classes</a>
-* <a href="http://getbootstrap.com/components/">Bootstrap's Components</a>
+#### 2a) Frame Rate
+
+This challenge was to optimize the scrolling animation until the frames per second rate reached 60 fps or higher, mainly by altering `views/js/main.js`. 
+
+__Optimizations made__:
+* Within `updatePositions()`
+  * Removed the reading of `items`, its length, and `scrollTop` from the `for` loop
+  * Set `style.transform` rather than `style.left`
+    * Initiated `style.left` rather than `style.basicLeft` in the setup function
+    * Added `will-change: transform;` to CSS class `.mover`
+* Added `requestAnimationFrame` rather than simply calling `updatePositions`, as per [this page's suggestion](https://www.html5rocks.com/en/tutorials/speed/animations/)
+  * included `onScroll()` and `requestAnimate()`
+* Named the anonymous pizza-setup function `setupPizzas()` so I can reuse it
+  * Added `getOptimalPizzas()` to minimize pizza leftovers
+  * Removed reading of `movingPizzas1` from the `for` loop
+* Added page reload on window resize
+  * Added a delay to prevent too much lag
+
+__Remaining issues__:
+* Not yet at a smooth 60+fps
+* Way too many `#document` layers, and I have no idea how or why they're there
+* Timeline recording keeps pointing me to the `style.transform=translateX` line, and I have no idea how to improve this
+  * Unless a double `for` loop is somehow faster
+  * Or a quintuple `if` statement
+
+___
+
+#### 2b) Computational Efficiency
+
+This challenge was to optimize the response time of resizing the pizzas when the slider in "Our Pizzas" section of the page moves. The goal was to resize the pizzas in 5 ms or less.
+
+__Optimizations made__:
+* Within `resizePizzas(size)`:
+  * Removed `determineDx()`
+  * Combined `changeSliderLabel(size)` and `sizeSwitcher(size)`, and removed the function part so that it just runs automatically
+  * `changePizzaSizes(size)`
+    * Removed the function part so that it runs automatically
+    * Removed the reading of `randomPizzaContainer` and its length outside of the `for` loop
+* Removed `var pizzasDiv` from the `for` loop
