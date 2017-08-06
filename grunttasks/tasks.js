@@ -45,8 +45,8 @@ module.exports = function(grunt) {
         },
         // destination: source
         files: [
-          {'index.html': 'temp/index-criticaled.html'},
-          {'build/views/pizza.html': 'src/views/pizza.html'}
+          // {'build/views/pizza.html': 'src/views/pizza.html'},
+          {'index.html': 'temp/index-criticaled.html'}
         ]
       },
       dynamic: {
@@ -73,7 +73,8 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           cwd: 'src/',
-          src: ['css/*.css', 'views/css/*.css', '!css/*.min.css', '!views/css/*min.css'],
+          // src: ['css/*.css', 'views/css/*.css', '!css/*.min.css', '!views/css/*min.css'],
+          src: ['css/*.css', '!css/*.min.css'],
           dest: 'build/',
           ext: '.min.css'
         }]
@@ -92,7 +93,8 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           cwd: 'src/',
-          src: '**/**/*.js',
+          // src: '**/**/*.js',
+          src: '**/*.js',
           dest: 'build/',
           ext: '.min.js'
         }]
@@ -108,9 +110,9 @@ module.exports = function(grunt) {
           dest: 'build/'
         },{
           expand: true,
-          cwd: 'src/',
-          src: ['views/images/*.{png,jpg,svg}'],
-          dest: 'build/'
+          cwd: 'src/views/images',
+          src: ['*.{png,jpg,svg}'],
+          dest: 'src/views/min-images'
         }]
       }
     },
@@ -119,7 +121,7 @@ module.exports = function(grunt) {
       main: {
         expand: true,
         cwd: 'src',
-        src: ['views/pizza.html'],
+        src: 'views/**',
         dest: "build/"
       }
     }
