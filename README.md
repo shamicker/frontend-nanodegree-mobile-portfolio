@@ -35,7 +35,7 @@ __b)__ In the "Our Pizzas!" section, when the slider moves, the size of the fore
 
 ---
 
-#### 2a) Frame Rate
+### 2a) Frame Rate
 
 This challenge was to optimize the scrolling animation until the frames per second rate reached 60 fps or higher, mainly by altering `views/js/main.js`. 
 
@@ -62,7 +62,7 @@ __Remaining issues__:
 
 ___
 
-#### 2b) Computational Efficiency
+### 2b) Computational Efficiency
 
 This challenge was to optimize the response time of resizing the pizzas when the slider in "Our Pizzas" section of the page moves. The goal was to resize the pizzas in 5 ms or less.
 
