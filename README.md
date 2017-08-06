@@ -1,6 +1,8 @@
 # Website Performance Optimization Project
 
-There were 2 parts to the challenge. To optimize PageSpeed Insights score for index.html, and to optimize frames per second (fps) in pizza.html.
+There were 2 parts to the challenge:  
+__1.__ Optimize PageSpeed Insights score for index.html.  
+__2.__ Optimize frames per second (fps) in pizza.html.
 
 ## Part 1 - `index.html`
 
