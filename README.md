@@ -14,8 +14,9 @@ This challenge was to optimize this online portfolio for loading speed. In parti
 
 __Optimizations made__:
 * Minified images, HTML, CSS and JavaScript files
+* Stored 3 requested images locally
 * Optimized images
-* Compressed all files
+* ~~Compressed all files~~ *(grunt-htmlcompressor requires Java)*
 * 'Async'ed the non-critical JS scripts
 * Inlined the critical CSS components into the HTML
 * Added Web Font Loader for asynchronous Google Font loading

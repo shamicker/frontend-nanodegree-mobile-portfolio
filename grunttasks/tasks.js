@@ -112,7 +112,7 @@ module.exports = function(grunt) {
           expand: true,
           cwd: 'src/views/images',
           src: ['*.{png,jpg,svg}'],
-          dest: 'src/views/min-images'
+          dest: 'src/views/images/min-images'
         }]
       }
     },

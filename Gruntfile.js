@@ -52,7 +52,7 @@ module.exports = function(grunt) {
         "cssmin",
         "uglify",
         "tinyimg", 
-        "copy", 
+        "copy",
         "pagespeed",
         // "connect"
         "live"

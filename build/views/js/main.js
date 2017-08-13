@@ -493,8 +493,6 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 // Implemented requestAnimationFrame from (what I understood of) this page:
 // https://www.html5rocks.com/en/tutorials/speed/animations/
 
-
-
 // Move the sliding background pizzas
 function updatePositions() {
   frame++;
