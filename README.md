@@ -57,11 +57,8 @@ __Optimizations made__:
   * Added a delay to prevent too much lag
 
 __Remaining issues__:
-* Not yet at a smooth 60+fps
 * Way too many `#document` layers, and I have no idea how or why they're there
 * Timeline recording keeps pointing me to the `style.transform=translateX` line, and I have no idea how to improve this
-  * Unless a double `for` loop is somehow faster
-  * Or a quintuple `if` statement
 
 ___
 
