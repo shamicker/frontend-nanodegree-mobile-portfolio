@@ -30,7 +30,7 @@ __Optimizations not made__:
 
 ## Part 2 - `views/pizza.html`
 
-On [this page](https://shamicker.github.io/frontend-nanodegree-mobile-portfolio/build/views/pizza.html), you'll find a fairly hideous, fake pizzeria page. 
+On [this page](https://shamicker.github.io/frontend-web-optimization-project/src/views/pizza.html), you'll find a fairly hideous, fake pizzeria page. 
 
 There were 2 parts to this section:  
 __a)__ The hypnotizing background pizzas should move smoothly when you scroll.  
